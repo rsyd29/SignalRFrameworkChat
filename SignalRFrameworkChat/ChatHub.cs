@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.SignalR;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +9,10 @@ namespace SignalRFrameworkChat
 {
     public class ChatHub : Hub
     {
-        public void Send(string name, string message)
+        public void Send(string messageJson)
         {
             // Call the addNewMessageToPage method to update clients.
-            Clients.All.addNewMessageToPage(name, message);
+            Clients.All.addNewMessageToPage(messageJson);
         }
     }
 }
